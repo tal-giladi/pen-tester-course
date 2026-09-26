@@ -32,3 +32,10 @@ The format is loosely based on [Keep a Changelog](https://keepachangelog.com/). 
   13 lessons + instructor solutions. 28 lessons total.
 - Labs: lab-08-api (REST+GraphQL, OWASP API Top 10; tested), lab-05-win-privesc (VM docs
   + provisioning). lab-07-web added in the prior commit.
+
+## Batch 5 — 2026-09-26
+- M10 Credential attacks (2 lessons), M13 Containers & Kubernetes (2 lessons) + solutions.
+  32 lessons total.
+- Labs (tested): lab-09-exploit (32-bit ret2win sandbox; acceptance test performs the
+  overflow), lab-13-containers (Docker socket-mount escape reading seeded host data).
+- M06 (Active Directory) and M14 (Cloud) drafting in progress (subagents running at cutoff).

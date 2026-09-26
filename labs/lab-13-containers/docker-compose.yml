@@ -1,0 +1,34 @@
+# lab-13-containers — a DELIBERATELY misconfigured container: the Docker socket is
+# mounted into it. LAB ONLY, isolated (no egress). Because the socket = the host root
+# daemon's API, a shell in `target` can drive the daemon and reach data it shouldn't.
+#
+# To keep this deterministic and off your real host root, the "host data" the escape
+# reaches is a named volume (ptlab13_hostdata) seeded with a benign flag. In the real
+# world the same socket lets an attacker mount the actual host filesystem.
+services:
+  seed:                                   # one-shot: plant a benign "host" marker, then exit
+    image: alpine:3.20
+    container_name: ptlab13_seed
+    volumes:
+      - hostdata:/data
+    command: ["sh","-c","echo LAB-FLAG-docker-socket-escape > /data/flag.txt; echo seeded"]
+    networks: [ptlab_internal]
+    restart: "no"
+
+  target:                                 # the "compromised app" you have a shell in
+    image: docker:27-cli                  # includes the docker client
+    container_name: ptlab13_target
+    command: ["sh","-c","echo 'target up. Try: ls -la /var/run/docker.sock'; sleep infinity"]
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock   # THE MISCONFIG (host daemon API)
+    networks: [ptlab_internal]
+    restart: unless-stopped
+
+volumes:
+  hostdata:
+    name: ptlab13_hostdata
+
+networks:
+  ptlab_internal:
+    driver: bridge
+    internal: true                        # no Internet egress — verify with `./labs/lab check`

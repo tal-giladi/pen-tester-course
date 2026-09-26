@@ -6,7 +6,7 @@ _Last updated 2026-09-26. Started 2026-09-26._
 
 ## Where I am
 
-- **Lessons done:** 0/28 (0%)
+- **Lessons done:** 0/32 (0%)
 - **Open struggles:** 0
 - **Next:** [00.1 Ethics, authorization & the law](lessons/module-00/lesson-01.md)
 
@@ -99,6 +99,22 @@ python course.py struggle 05.2 "note"
 - [ ] ⬜ [09.1 Methodology & the memory model](lessons/module-09/lesson-01.md)
 - [ ] ⬜ [09.2 Stack buffer overflows end to end](lessons/module-09/lesson-02.md)
 - [ ] ⬜ [09.3 Modern mitigations & ROP concepts](lessons/module-09/lesson-03.md)
+
+</details>
+
+<details>
+<summary><b>10 · Credential attacks</b> — 0/2</summary>
+
+- [ ] ⬜ [10.1 Password attacks done responsibly](lessons/module-10/lesson-01.md)
+- [ ] ⬜ [10.2 Hashes, cracking & secrets discovery](lessons/module-10/lesson-02.md)
+
+</details>
+
+<details>
+<summary><b>13 · Containers & Kubernetes</b> — 0/2</summary>
+
+- [ ] ⬜ [13.1 Docker: isolation, capabilities & escape](lessons/module-13/lesson-01.md)
+- [ ] ⬜ [13.2 Kubernetes attack surface](lessons/module-13/lesson-02.md)
 
 </details>
 

@@ -41,6 +41,12 @@
   - [09.1 · Methodology & the memory model](lessons/module-09/lesson-01.md)
   - [09.2 · Stack buffer overflows end to end](lessons/module-09/lesson-02.md)
   - [09.3 · Modern mitigations & ROP concepts](lessons/module-09/lesson-03.md)
+- **10 · Credential attacks**
+  - [10.1 · Password attacks done responsibly](lessons/module-10/lesson-01.md)
+  - [10.2 · Hashes, cracking & secrets discovery](lessons/module-10/lesson-02.md)
+- **13 · Containers & Kubernetes**
+  - [13.1 · Docker: isolation, capabilities & escape](lessons/module-13/lesson-01.md)
+  - [13.2 · Kubernetes attack surface](lessons/module-13/lesson-02.md)
 
 - **Labs**
   - [Lab 00 · Setup & isolation proof](labs/lab-00-setup/README.md)
@@ -49,6 +55,8 @@
   - [Lab 05 · Windows privilege escalation (VM)](labs/lab-05-win-privesc/README.md)
   - [Lab 07 · Vulnerable web app](labs/lab-07-web/README.md)
   - [Lab 08 · Vulnerable REST/GraphQL API](labs/lab-08-api/README.md)
+  - [Lab 09 · Exploitation sandbox](labs/lab-09-exploit/README.md)
+  - [Lab 13 · Container escape](labs/lab-13-containers/README.md)
   - [VM labs (Windows / AD)](labs/vm/README.md)
 
 - **Reference**
