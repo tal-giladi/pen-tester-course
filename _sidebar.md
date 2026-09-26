@@ -1,0 +1,13 @@
+- [Home](/)
+- [Curriculum map &amp; coverage](curriculum/course-outline.md)
+- [Competency map](curriculum/competency-map.md)
+- [Exercise design standard](curriculum/exercise-standard.md)
+- [Progress](PROGRESS.md)
+
+- **Reference**
+  - [Standards map: OWASP / NIST / ATT&CK](references/standards-map.md)
+  - [Tools inventory & fallbacks](TOOLS.md)
+  - [Glossary](references/glossary.md)
+  - [Command & technique reference](references/command-reference.md)
+  - [The local lab](labs/README.md)
+  - [Maintenance & currency](curriculum/maintenance.md)

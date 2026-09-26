@@ -1,0 +1,22 @@
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.env
+# Lab runtime artifacts
+labs/**/.data/
+labs/**/loot/
+labs/**/*.log
+scripts/.state/
+# Large VM / tool downloads — never commit these
+*.ova
+*.ovf
+*.vmdk
+*.vdi
+*.iso
+tools/bin/
