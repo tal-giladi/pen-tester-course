@@ -70,6 +70,18 @@
   - [16.2 · Findings: severity (CVSS), risk & remediation](lessons/module-16/lesson-02.md)
   - [16.3 · The report & the debrief](lessons/module-16/lesson-03.md)
 
+- **Assessments**
+  - [A1 · External recon & enumeration](assessments/A1-external-recon.md)
+  - [A2 · Linux privilege escalation](assessments/A2-linux-privesc.md)
+  - [A3 · Windows privilege escalation](assessments/A3-windows-privesc.md)
+  - [A4 · Web & API penetration test](assessments/A4-web-api.md)
+  - [A5 · Active Directory attack path](assessments/A5-ad-attack-path.md)
+  - [A6 · Pivoting & segmented networks](assessments/A6-pivoting.md)
+  - [A7 · Full penetration test](assessments/A7-full-pentest.md)
+- **Capstone**
+  - [Capstone engagement](capstone/README.md)
+  - [Scope & rules of engagement](capstone/scope-and-roe.md)
+
 - **Labs**
   - [Lab 00 · Setup & isolation proof](labs/lab-00-setup/README.md)
   - [Lab 02 · Reconnaissance (northwind.lab)](labs/lab-02-recon/README.md)
@@ -81,6 +93,7 @@
   - [Lab 11 · Lateral movement (credential reuse)](labs/lab-11-lateral/README.md)
   - [Lab 12 · Pivoting (DMZ→internal→restricted)](labs/lab-12-pivot/README.md)
   - [Lab 13 · Container escape](labs/lab-13-containers/README.md)
+  - [Lab 14 · Cloud simulation (LocalStack)](labs/lab-14-cloud/README.md)
   - [VM labs (Windows / AD)](labs/vm/README.md)
 
 - **Reference**

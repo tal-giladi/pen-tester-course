@@ -106,5 +106,4 @@ plain Markdown even if GitHub Pages is disabled.
 
 ---
 
-*Course under active construction — see [`TODO_FOR_TAL.md`](TODO_FOR_TAL.md) for current status and
-[`CHANGELOG.md`](CHANGELOG.md) for version history.*
+*Course v1 complete — 48 lessons, 11 labs, 7 assessments + capstone. See [`CHANGELOG.md`](CHANGELOG.md) for history and [`TODO_FOR_TAL.md`](TODO_FOR_TAL.md) for status.*

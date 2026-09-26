@@ -1,0 +1,51 @@
+# capstone — an integrated, segmented engagement composed from the proven lab images.
+# LAB ONLY, every network internal (no egress). Topology:
+#
+#   ws ─net_dmz─ [web (vuln app) + dmz (pivot)] ─net_internal─ internal ─net_restricted─ restricted
+#
+# Initial access surface is the vulnerable web app on the DMZ (lab-07 image); the DMZ
+# host is your pivot into the internal segment; the crown-jewel flag lives on restricted,
+# reachable only via internal. The Active Directory segment is the VM forest (lab-06-ad).
+# Reuses build contexts from the individual labs (all individually acceptance-tested).
+services:
+  ws:                               # attacker workstation (edge); carries the lab pivot key
+    build: ../lab-12-pivot/workstation
+    container_name: ptlabcap_ws
+    networks: [net_dmz]
+    restart: unless-stopped
+
+  web:                              # external attack surface (DMZ web app)
+    build: ../lab-07-web/app
+    container_name: ptlabcap_web
+    hostname: portal
+    networks:
+      net_dmz: { aliases: [portal, portal.vireo.lab] }
+    restart: unless-stopped
+
+  dmz:                              # DMZ pivot host (foothold), dual-homed into internal
+    build: ../lab-12-pivot/pivot-host
+    container_name: ptlabcap_dmz
+    hostname: dmz
+    networks: [net_dmz, net_internal]
+    restart: unless-stopped
+
+  internal:                         # internal pivot, dual-homed into restricted
+    build: ../lab-12-pivot/pivot-host
+    container_name: ptlabcap_internal
+    hostname: internal
+    networks: [net_internal, net_restricted]
+    restart: unless-stopped
+
+  restricted:                       # crown-jewel target
+    image: nginx:1.27-alpine
+    container_name: ptlabcap_restricted
+    hostname: restricted
+    volumes:
+      - ./restricted.conf:/etc/nginx/conf.d/default.conf:ro
+    networks: [net_restricted]
+    restart: unless-stopped
+
+networks:
+  net_dmz:        { driver: bridge, internal: true }
+  net_internal:   { driver: bridge, internal: true }
+  net_restricted: { driver: bridge, internal: true }

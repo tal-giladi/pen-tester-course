@@ -46,3 +46,11 @@ The format is loosely based on [Keep a Changelog](https://keepachangelog.com/). 
 - Labs (tested): lab-11-lateral (credential reuse) and lab-12-pivot (DMZ→internal→restricted,
   SSH ProxyJump/SOCKS chain). scripts/check.py quality checker (links, sidebar, structure,
   safety, currency) — passing.
+
+## Batch 8 — 2026-09-26  (v1 feature-complete)
+- Assessments A1–A7 (student-facing, solution-free) + instructor solutions.
+- Capstone: client brief, scope & RoE, engagement spec (report as deliverable) + instructor
+  walkthrough. Runnable integrated environment `./labs/lab up capstone` (web DMZ → pivot →
+  crown-jewel), acceptance-tested.
+- lab-14-cloud (LocalStack) added & tested. scripts/check.py passes (0 errors).
+- Sidebar now includes Assessments, Capstone, and all 11 labs. Course v1 complete.
