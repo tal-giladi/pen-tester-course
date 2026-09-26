@@ -1,0 +1,29 @@
+# lab-14-cloud — a LOCAL cloud SIMULATION (LocalStack) with deliberate misconfigurations
+# for M14. LAB ONLY, isolated (no egress). This is NOT a real cloud tenant; credentials
+# and data are synthetic/benign. Never point real-cloud techniques at a real account
+# without written authorization AND the provider's penetration-testing policy.
+#
+# Attack from the workstation: docker exec -it ptlab14_ws bash
+services:
+  localstack:
+    image: localstack/localstack:3
+    container_name: ptlab14_localstack
+    environment:
+      - SERVICES=s3,iam,sts
+      - DEBUG=0
+    volumes:
+      - ./init:/etc/localstack/init/ready.d:ro    # seed.sh runs when LocalStack is ready
+    networks:
+      ptlab_cloud: { aliases: [localstack, metadata.lab] }
+    restart: unless-stopped
+
+  workstation:
+    build: ./workstation
+    container_name: ptlab14_ws
+    networks: [ptlab_cloud]
+    restart: unless-stopped
+
+networks:
+  ptlab_cloud:
+    driver: bridge
+    internal: true       # no Internet egress — verify with `./labs/lab check`
