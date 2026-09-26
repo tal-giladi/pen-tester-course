@@ -1,0 +1,25 @@
+# lab-11-lateral — credential reuse between two hosts. LAB ONLY, isolated (no egress).
+# You have a foothold on host-a; a reused "deploy key" found there opens host-b (svc),
+# where the flag lives. Work from ws: docker exec -it ptlab11_ws bash
+services:
+  ws:
+    build: ./workstation
+    container_name: ptlab11_ws
+    networks: [ptlab_lan]
+    restart: unless-stopped
+  host-a:
+    build: ./host-a
+    container_name: ptlab11_host_a
+    hostname: host-a
+    networks: [ptlab_lan]
+    restart: unless-stopped
+  host-b:
+    build: ./host-b
+    container_name: ptlab11_host_b
+    hostname: host-b
+    networks: [ptlab_lan]
+    restart: unless-stopped
+networks:
+  ptlab_lan:
+    driver: bridge
+    internal: true

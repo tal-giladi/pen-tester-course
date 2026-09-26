@@ -6,7 +6,7 @@ _Last updated 2026-09-26. Started 2026-09-26._
 
 ## Where I am
 
-- **Lessons done:** 0/39 (0%)
+- **Lessons done:** 0/48 (0%)
 - **Open struggles:** 0
 - **Next:** [00.1 Ethics, authorization & the law](lessons/module-00/lesson-01.md)
 
@@ -121,6 +121,22 @@ python course.py struggle 05.2 "note"
 </details>
 
 <details>
+<summary><b>11 · Lateral movement</b> — 0/2</summary>
+
+- [ ] ⬜ [11.1 Remote execution & admin protocols](lessons/module-11/lesson-01.md)
+- [ ] ⬜ [11.2 Pass-the-hash, pass-the-ticket & overpass](lessons/module-11/lesson-02.md)
+
+</details>
+
+<details>
+<summary><b>12 · Pivoting & complex networks</b> — 0/2</summary>
+
+- [ ] ⬜ [12.1 Port forwarding & tunneling](lessons/module-12/lesson-01.md)
+- [ ] ⬜ [12.2 Pivoting through segmented networks](lessons/module-12/lesson-02.md)
+
+</details>
+
+<details>
 <summary><b>13 · Containers & Kubernetes</b> — 0/2</summary>
 
 - [ ] ⬜ [13.1 Docker: isolation, capabilities & escape](lessons/module-13/lesson-01.md)
@@ -134,6 +150,23 @@ python course.py struggle 05.2 "note"
 - [ ] ⬜ [14.1 Cloud fundamentals: IAM, credentials & RoE](lessons/module-14/lesson-01.md)
 - [ ] ⬜ [14.2 Metadata, storage & network exposure](lessons/module-14/lesson-02.md)
 - [ ] ⬜ [14.3 Cloud identity & privilege escalation](lessons/module-14/lesson-03.md)
+
+</details>
+
+<details>
+<summary><b>15 · Adversary simulation</b> — 0/2</summary>
+
+- [ ] ⬜ [15.1 Red vs pentest vs purple; ATT&CK chains](lessons/module-15/lesson-01.md)
+- [ ] ⬜ [15.2 Evasion & C2 concepts; the purple-team loop](lessons/module-15/lesson-02.md)
+
+</details>
+
+<details>
+<summary><b>16 · Professional practice & reporting</b> — 0/3</summary>
+
+- [ ] ⬜ [16.1 Engagement lifecycle: scope, RoE & evidence](lessons/module-16/lesson-01.md)
+- [ ] ⬜ [16.2 Findings: severity (CVSS), risk & remediation](lessons/module-16/lesson-02.md)
+- [ ] ⬜ [16.3 The report & the debrief](lessons/module-16/lesson-03.md)
 
 </details>
 

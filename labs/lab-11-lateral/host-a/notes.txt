@@ -1,0 +1,3 @@
+Backup automation notes (LAB)
+- host-b (svc account) is reached with the deploy key at ~/.ssh/id_ed25519 on this box.
+- svc owns the release artifacts; the current build flag is in svc's home.

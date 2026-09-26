@@ -49,6 +49,12 @@
 - **10 · Credential attacks**
   - [10.1 · Password attacks done responsibly](lessons/module-10/lesson-01.md)
   - [10.2 · Hashes, cracking & secrets discovery](lessons/module-10/lesson-02.md)
+- **11 · Lateral movement**
+  - [11.1 · Remote execution & admin protocols](lessons/module-11/lesson-01.md)
+  - [11.2 · Pass-the-hash, pass-the-ticket & overpass](lessons/module-11/lesson-02.md)
+- **12 · Pivoting & complex networks**
+  - [12.1 · Port forwarding & tunneling](lessons/module-12/lesson-01.md)
+  - [12.2 · Pivoting through segmented networks](lessons/module-12/lesson-02.md)
 - **13 · Containers & Kubernetes**
   - [13.1 · Docker: isolation, capabilities & escape](lessons/module-13/lesson-01.md)
   - [13.2 · Kubernetes attack surface](lessons/module-13/lesson-02.md)
@@ -56,6 +62,13 @@
   - [14.1 · Cloud fundamentals: IAM, credentials & RoE](lessons/module-14/lesson-01.md)
   - [14.2 · Metadata, storage & network exposure](lessons/module-14/lesson-02.md)
   - [14.3 · Cloud identity & privilege escalation](lessons/module-14/lesson-03.md)
+- **15 · Adversary simulation**
+  - [15.1 · Red vs pentest vs purple; ATT&CK chains](lessons/module-15/lesson-01.md)
+  - [15.2 · Evasion & C2 concepts; the purple-team loop](lessons/module-15/lesson-02.md)
+- **16 · Professional practice & reporting**
+  - [16.1 · Engagement lifecycle: scope, RoE & evidence](lessons/module-16/lesson-01.md)
+  - [16.2 · Findings: severity (CVSS), risk & remediation](lessons/module-16/lesson-02.md)
+  - [16.3 · The report & the debrief](lessons/module-16/lesson-03.md)
 
 - **Labs**
   - [Lab 00 · Setup & isolation proof](labs/lab-00-setup/README.md)
@@ -65,6 +78,8 @@
   - [Lab 07 · Vulnerable web app](labs/lab-07-web/README.md)
   - [Lab 08 · Vulnerable REST/GraphQL API](labs/lab-08-api/README.md)
   - [Lab 09 · Exploitation sandbox](labs/lab-09-exploit/README.md)
+  - [Lab 11 · Lateral movement (credential reuse)](labs/lab-11-lateral/README.md)
+  - [Lab 12 · Pivoting (DMZ→internal→restricted)](labs/lab-12-pivot/README.md)
   - [Lab 13 · Container escape](labs/lab-13-containers/README.md)
   - [VM labs (Windows / AD)](labs/vm/README.md)
 

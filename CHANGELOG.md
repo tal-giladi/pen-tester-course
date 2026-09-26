@@ -39,3 +39,10 @@ The format is loosely based on [Keep a Changelog](https://keepachangelog.com/). 
 - Labs (tested): lab-09-exploit (32-bit ret2win sandbox; acceptance test performs the
   overflow), lab-13-containers (Docker socket-mount escape reading seeded host data).
 - M06 Active Directory (4 lessons) and M14 Cloud (3 lessons) + solutions integrated.
+
+## Batch 7 — 2026-09-26
+- M11 Lateral movement (2), M12 Pivoting (2), M15 Adversary simulation (2), M16 Professional
+  practice & reporting (3) + reporting templates. All 17 modules (M00–M16), 48 lessons, complete.
+- Labs (tested): lab-11-lateral (credential reuse) and lab-12-pivot (DMZ→internal→restricted,
+  SSH ProxyJump/SOCKS chain). scripts/check.py quality checker (links, sidebar, structure,
+  safety, currency) — passing.
