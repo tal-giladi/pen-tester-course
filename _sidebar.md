@@ -9,9 +9,26 @@
   - [00.2 · Methodology: PTES, kill chain & ATT&CK](lessons/module-00/lesson-02.md)
   - [00.3 · Threat modeling & attack surface](lessons/module-00/lesson-03.md)
   - [00.4 · The lab & safety architecture](lessons/module-00/lesson-04.md)
+- **1 · Networking & protocols**
+  - [01.1 · TCP/IP, ports, sockets & the handshake](lessons/module-01/lesson-01.md)
+  - [01.2 · DNS, HTTP/HTTPS & TLS for testers](lessons/module-01/lesson-02.md)
+  - [01.3 · Routing, NAT, firewalls, proxies & auth concepts](lessons/module-01/lesson-03.md)
+- **2 · Reconnaissance**
+  - [02.1 · Passive reconnaissance & OSINT](lessons/module-02/lesson-01.md)
+  - [02.2 · Active recon: DNS, subdomains & surface](lessons/module-02/lesson-02.md)
+- **3 · Scanning & enumeration**
+  - [03.1 · Host discovery & port scanning](lessons/module-03/lesson-01.md)
+  - [03.2 · Service fingerprinting & enumeration](lessons/module-03/lesson-02.md)
+  - [03.3 · Vulnerability discovery & prioritization](lessons/module-03/lesson-03.md)
+- **4 · Linux & privilege escalation**
+  - [04.1 · Linux for testers](lessons/module-04/lesson-01.md)
+  - [04.2 · Local privesc I: SUID, sudo, cron, PATH, caps](lessons/module-04/lesson-02.md)
+  - [04.3 · Local privesc II: services, kernel & methodology](lessons/module-04/lesson-03.md)
 
 - **Labs**
   - [Lab 00 · Setup & isolation proof](labs/lab-00-setup/README.md)
+  - [Lab 02 · Reconnaissance (northwind.lab)](labs/lab-02-recon/README.md)
+  - [Lab 04 · Linux privilege escalation](labs/lab-04-linux-privesc/README.md)
   - [VM labs (Windows / AD)](labs/vm/README.md)
 
 - **Reference**

@@ -6,7 +6,7 @@ _Last updated 2026-09-26. Started 2026-09-26._
 
 ## Where I am
 
-- **Lessons done:** 0/4 (0%)
+- **Lessons done:** 0/15 (0%)
 - **Open struggles:** 0
 - **Next:** [00.1 Ethics, authorization & the law](lessons/module-00/lesson-01.md)
 
@@ -27,6 +27,41 @@ python course.py struggle 05.2 "note"
 - [ ] ⬜ [00.2 Methodology: PTES, kill chain & ATT&CK](lessons/module-00/lesson-02.md)
 - [ ] ⬜ [00.3 Threat modeling & attack surface](lessons/module-00/lesson-03.md)
 - [ ] ⬜ [00.4 The lab & safety architecture](lessons/module-00/lesson-04.md)
+
+</details>
+
+<details>
+<summary><b>1 · Networking & protocols</b> — 0/3</summary>
+
+- [ ] ⬜ [01.1 TCP/IP, ports, sockets & the handshake](lessons/module-01/lesson-01.md)
+- [ ] ⬜ [01.2 DNS, HTTP/HTTPS & TLS for testers](lessons/module-01/lesson-02.md)
+- [ ] ⬜ [01.3 Routing, NAT, firewalls, proxies & auth concepts](lessons/module-01/lesson-03.md)
+
+</details>
+
+<details>
+<summary><b>2 · Reconnaissance</b> — 0/2</summary>
+
+- [ ] ⬜ [02.1 Passive reconnaissance & OSINT](lessons/module-02/lesson-01.md)
+- [ ] ⬜ [02.2 Active recon: DNS, subdomains & surface](lessons/module-02/lesson-02.md)
+
+</details>
+
+<details>
+<summary><b>3 · Scanning & enumeration</b> — 0/3</summary>
+
+- [ ] ⬜ [03.1 Host discovery & port scanning](lessons/module-03/lesson-01.md)
+- [ ] ⬜ [03.2 Service fingerprinting & enumeration](lessons/module-03/lesson-02.md)
+- [ ] ⬜ [03.3 Vulnerability discovery & prioritization](lessons/module-03/lesson-03.md)
+
+</details>
+
+<details>
+<summary><b>4 · Linux & privilege escalation</b> — 0/3</summary>
+
+- [ ] ⬜ [04.1 Linux for testers](lessons/module-04/lesson-01.md)
+- [ ] ⬜ [04.2 Local privesc I: SUID, sudo, cron, PATH, caps](lessons/module-04/lesson-02.md)
+- [ ] ⬜ [04.3 Local privesc II: services, kernel & methodology](lessons/module-04/lesson-03.md)
 
 </details>
 

@@ -1,0 +1,46 @@
+# lab-02-recon — DNS + web recon estate for the fictional northwind.lab.
+# Internal (no-egress) network with fixed addresses. LAB TARGETS ONLY.
+#
+# Do your recon from the `workstation` container (has dig, curl, openssl):
+#   docker exec -it ptlab02_ws bash
+# The lab resolver is ns1 at 10.13.0.53.
+services:
+  ns1:
+    build: ./dns
+    container_name: ptlab02_ns1
+    command: ["-c", "/etc/bind/named.ns1.conf", "-g"]
+    networks:
+      ptlab_recon: { ipv4_address: 10.13.0.53 }
+    restart: unless-stopped
+
+  ns2:                       # forgotten secondary with AXFR open to the world (the flaw)
+    build: ./dns
+    container_name: ptlab02_ns2
+    command: ["-c", "/etc/bind/named.ns2.conf", "-g"]
+    networks:
+      ptlab_recon: { ipv4_address: 10.13.0.54 }
+    restart: unless-stopped
+
+  web:
+    build: ./web
+    container_name: ptlab02_web
+    networks:
+      ptlab_recon: { ipv4_address: 10.13.0.10 }
+    restart: unless-stopped
+
+  workstation:               # your recon shell on the lab network (tools baked in at build)
+    build: ./workstation
+    container_name: ptlab02_ws
+    dns:
+      - 10.13.0.53           # use the lab resolver for *.northwind.lab
+    networks:
+      ptlab_recon: { ipv4_address: 10.13.0.100 }
+    restart: unless-stopped
+
+networks:
+  ptlab_recon:
+    driver: bridge
+    internal: true           # no Internet route — verify with `./labs/lab check`
+    ipam:
+      config:
+        - subnet: 10.13.0.0/24

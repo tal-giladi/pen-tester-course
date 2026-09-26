@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /admin
+Disallow: /dev
+Disallow: /checkout/internal
+Sitemap: http://www.northwind.lab/sitemap.xml

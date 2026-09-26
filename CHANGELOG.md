@@ -18,3 +18,10 @@ The format is loosely based on [Keep a Changelog](https://keepachangelog.com/). 
 
 ## [0.1.0] — 2026-09-26
 - Project initialized from `plan.md`. Curriculum version 0.1.
+
+## Batch 3 — 2026-09-26
+- M01 Networking & protocols (3 lessons), M02 Reconnaissance (2), M03 Scanning &
+  enumeration (3), M04 Linux & privilege escalation (3) — 11 lessons + instructor solutions.
+- Labs: lab-02-recon (BIND with AXFR-open secondary, multi-vhost nginx, hidden vhost,
+  cert-SAN pivot; tested) and lab-04-linux-privesc (5 independent privesc vectors; tested).
+  Both isolated (no egress) with acceptance tests.

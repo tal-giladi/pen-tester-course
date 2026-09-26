@@ -1,0 +1,37 @@
+$TTL 300
+@       IN  SOA ns1.northwind.lab. hostmaster.northwind.lab. (
+                2026092601  ; serial
+                3600        ; refresh
+                900         ; retry
+                604800      ; expire
+                300 )       ; negative cache TTL
+;
+        IN  NS  ns1.northwind.lab.
+        IN  NS  ns2.northwind.lab.
+        IN  MX  10 mail.northwind.lab.
+        IN  TXT "v=spf1 include:spf.northwind.lab -all"
+;
+; --- infrastructure ---
+ns1     IN  A   10.13.0.53
+ns2     IN  A   10.13.0.54
+mail    IN  A   10.13.0.25
+spf     IN  TXT "v=spf1 ip4:10.13.0.25 -all"
+;
+; --- externally reachable web estate (all on the web host) ---
+@       IN  A   10.13.0.10
+www     IN  A   10.13.0.10
+shop    IN  A   10.13.0.10
+api     IN  A   10.13.0.10
+dev     IN  A   10.13.0.10
+promo   IN  A   10.13.0.10
+checkout IN A   10.13.0.10
+admin   IN  A   10.13.0.10
+vpn-old IN  A   10.13.0.10
+;
+; --- a name that only points to RFC1918 space: NOT externally reachable.
+;     Discoverable via AXFR; teaches scope/reachability (note it, don't prioritize it). ---
+internal-crm IN A 10.0.5.10
+;
+; NOTE: staging.northwind.lab and legacy.northwind.lab are deliberately ABSENT here.
+;   - staging is served by the web host as a virtual host (found via vhost fuzzing).
+;   - legacy appears only in a TLS certificate SAN (found via cert pivoting).

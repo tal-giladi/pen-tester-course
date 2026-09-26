@@ -1,0 +1,23 @@
+# lab-04-linux-privesc — intentionally misconfigured Linux target for local privesc.
+# Runs on an internal (no-egress) network. The published SSH port is INGRESS ONLY
+# (lets you reach the box from your host); it does NOT give the container Internet egress.
+services:
+  target:
+    build: .
+    container_name: ptlab04_target
+    hostname: lab04
+    # ingress only: reach the foothold at ssh -p 2204 lab@localhost
+    ports:
+      - "127.0.0.1:2204:22"
+    networks:
+      - ptlab_internal
+    # cron + setcap need these; kept minimal and LAB-ONLY.
+    cap_add:
+      - SETUID
+      - SETGID
+    restart: unless-stopped
+
+networks:
+  ptlab_internal:
+    driver: bridge
+    internal: true      # no route to the Internet — verify with `./labs/lab check`
