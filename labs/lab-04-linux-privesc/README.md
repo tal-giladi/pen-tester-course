@@ -18,10 +18,9 @@ targets.
 ```bash
 ./labs/lab up    lab-04-linux-privesc
 ./labs/lab check                          # confirm isolation before you start
-# Foothold options:
-ssh lab@localhost -p 2204                  # password: Lab-Passw0rd!  (ingress only)
-#   or, if you prefer:
-docker exec -it -u lab ptlab04_target bash
+# Foothold (the target is on an internal network, so not reachable from localhost):
+docker exec -it -u lab ptlab04_target bash   # password not needed via exec; you are user 'lab'
+#   (SSH as lab / Lab-Passw0rd! also works from a Kali box attached to the lab network)
 ./labs/lab reset lab-04-linux-privesc      # restore clean state (undoes any tampering)
 ./labs/lab down  lab-04-linux-privesc
 ```

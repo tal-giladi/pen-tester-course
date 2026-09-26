@@ -79,6 +79,20 @@ On Windows PowerShell: `./labs/lab.ps1 up lab-00-setup`, etc. Each subcommand is
 `docker compose` in the lab's folder plus the isolation logic. Read the script — it's short, and a
 tester should never run a "magic" script they haven't read.
 
+<div class="callout key">
+
+**How you reach an isolated target.** A subtle, important consequence: on an `internal: true`
+network, Docker will **not** publish a container's port to your host — even if the compose file
+says `ports: ["8080:80"]`, the mapping is silently never created (confirm with `docker port`). That
+is the same property that blocks egress working in the other direction. So you don't attack lab
+targets from `localhost`; you attack from a **workstation container on the lab network** (most labs
+ship one — `docker exec -it ptlabNN_ws sh`) or by attaching your Kali box to the lab network. This
+mirrors real life: a tester works from a machine *inside* the target's network, not from the
+Internet. Only the *attacker* box may have Internet access; **targets never do**, so their outbound
+requests (think SSRF, reverse shells) can't escape the lab.
+
+</div>
+
 ## Practical lab
 
 <div class="lab">
@@ -175,8 +189,10 @@ response = egress.
 <div class="callout key">
 
 1. What does `internal: true` actually change about the Docker network, in terms of routing?
-2. A target container is on an internal network **and** has `ports: ["8080:80"]` published to your
-   host. Can it reach the Internet? Can *you* reach it? Are those the same question?
+2. A target container is on an `internal: true` network **and** its compose file lists
+   `ports: ["8080:80"]`. Can it reach the Internet? Can *you*, from your host, reach it on
+   `localhost:8080`? (Try it — the answer surprises people, and it's why we attack from a box on
+   the lab network.)
 3. Why does the lab ship a container that *can* reach the Internet on purpose?
 4. Your teammate says "the compose file says `internal: true`, so it's fine, no need to check."
    Give the one-sentence professional rebuttal.

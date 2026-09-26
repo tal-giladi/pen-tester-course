@@ -80,8 +80,13 @@ networks; (b) no target has Internet egress (proven from inside, not read); (c) 
 ports (if any) are published, and publishing ≠ egress.
 
 **Check-yourself:** (1) Docker doesn't create an external gateway/NAT for the network, so there's no
-default route off the host. (2) It still cannot reach the Internet (egress unchanged); *you* can
-reach it (ingress via the published port). Ingress ≠ egress. (3) To teach you to recognize the
+default route off the host. (2) It still cannot reach the Internet (egress blocked). And you
+**cannot** reach it on `localhost:8080` either: on an `internal: true` network Docker does not
+actually publish the port — the `ports:` binding is requested but never created (`docker port`
+shows nothing, `NetworkSettings.Ports` is empty). That's why lab targets are attacked from a
+workstation container on the lab network (or an attached Kali box), not from the host. The lesson
+this teaches: isolation is bidirectional, and the realistic tester vantage point is *inside* the
+network. (3) To teach you to recognize the
 misconfiguration and to make the check meaningful (a check that can only pass proves nothing). (4)
 "A safety control we don't test isn't a control — one stray attachment or `network: host` silently
 reopens egress; verify from inside." (5) Host-only/internal virtual switch with no NAT/bridged

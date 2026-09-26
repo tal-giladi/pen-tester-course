@@ -1,0 +1,36 @@
+# lab-07-web — deliberately vulnerable "Northwind Shop" for M07 (web) and M08 (API).
+# Isolated (no-egress). Because the network is internal, targets are NOT reachable from
+# your host directly — you attack from the `workstation` container on the lab network
+# (docker exec -it ptlab07_ws sh). This also guarantees the app's SSRF can never reach
+# the real Internet. GUI/Burp users: attach your Kali box to network ptlab07_appnet.
+services:
+  web:
+    build: ./app
+    container_name: ptlab07_web
+    networks:
+      ptlab_appnet:
+        aliases: [web, shop.northwind.lab]
+    restart: unless-stopped
+
+  internal:                         # SSRF target + metadata simulation; internal only
+    image: nginx:1.27-alpine
+    container_name: ptlab07_internal
+    volumes:
+      - ./internal/default.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      ptlab_appnet:
+        aliases: [internal-api, internal-api.lab, metadata, metadata.lab]
+    restart: unless-stopped
+
+  workstation:                      # your attacker shell on the lab network
+    build: ../lab-02-recon/workstation   # reuse the recon workstation image (curl/openssl/nmap)
+    container_name: ptlab07_ws
+    command: ["sh", "-c", "echo 'attacker workstation up. target: http://web:5000'; sleep infinity"]
+    networks:
+      - ptlab_appnet
+    restart: unless-stopped
+
+networks:
+  ptlab_appnet:
+    driver: bridge
+    internal: true                  # no Internet route — verify with `./labs/lab check`

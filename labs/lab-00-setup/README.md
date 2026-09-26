@@ -38,7 +38,9 @@ checking isolation before any offensive session. You'll see, hands-on, the diffe
   single network it joins is `internal: true`.
 - `leaky` is identical except for which network it joins — that's the whole difference between a
   safe lab target and a dangerous one.
-- Publishing a port (`ports:`) lets *you* reach a container from the host; it does **not** give the
-  container Internet egress. Ingress and egress are different questions.
+- On an `internal: true` network Docker will **not** publish a container's port to the host even if
+  `ports:` is set — the mapping is silently never created (`docker port` shows nothing). Isolation
+  is bidirectional, which is why lab targets are attacked from a container/box **on** the lab
+  network, not from `localhost` (see lesson 00.4).
 
 See [lesson 00.4](../../lessons/module-00/lesson-04.md) for the full walkthrough and exercise.
