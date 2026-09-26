@@ -28,6 +28,11 @@
   - [05.1 · Windows for testers](lessons/module-05/lesson-01.md)
   - [05.2 · Windows authentication: NTLM, Kerberos, tokens](lessons/module-05/lesson-02.md)
   - [05.3 · Windows local privilege escalation](lessons/module-05/lesson-03.md)
+- **6 · Active Directory**
+  - [06.1 · AD as a graph: architecture & enumeration](lessons/module-06/lesson-01.md)
+  - [06.2 · Kerberoasting & AS-REP roasting](lessons/module-06/lesson-02.md)
+  - [06.3 · Abusing ACLs, delegation & GPOs](lessons/module-06/lesson-03.md)
+  - [06.4 · Domain privesc & attack-path analysis](lessons/module-06/lesson-04.md)
 - **7 · Web application testing**
   - [07.1 · The web attack model & intercepting proxy](lessons/module-07/lesson-01.md)
   - [07.2 · Authentication, authorization & access control](lessons/module-07/lesson-02.md)
@@ -47,6 +52,10 @@
 - **13 · Containers & Kubernetes**
   - [13.1 · Docker: isolation, capabilities & escape](lessons/module-13/lesson-01.md)
   - [13.2 · Kubernetes attack surface](lessons/module-13/lesson-02.md)
+- **14 · Cloud penetration testing**
+  - [14.1 · Cloud fundamentals: IAM, credentials & RoE](lessons/module-14/lesson-01.md)
+  - [14.2 · Metadata, storage & network exposure](lessons/module-14/lesson-02.md)
+  - [14.3 · Cloud identity & privilege escalation](lessons/module-14/lesson-03.md)
 
 - **Labs**
   - [Lab 00 · Setup & isolation proof](labs/lab-00-setup/README.md)

@@ -38,4 +38,4 @@ The format is loosely based on [Keep a Changelog](https://keepachangelog.com/). 
   32 lessons total.
 - Labs (tested): lab-09-exploit (32-bit ret2win sandbox; acceptance test performs the
   overflow), lab-13-containers (Docker socket-mount escape reading seeded host data).
-- M06 (Active Directory) and M14 (Cloud) drafting in progress (subagents running at cutoff).
+- M06 Active Directory (4 lessons) and M14 Cloud (3 lessons) + solutions integrated.

@@ -6,7 +6,7 @@ _Last updated 2026-09-26. Started 2026-09-26._
 
 ## Where I am
 
-- **Lessons done:** 0/32 (0%)
+- **Lessons done:** 0/39 (0%)
 - **Open struggles:** 0
 - **Next:** [00.1 Ethics, authorization & the law](lessons/module-00/lesson-01.md)
 
@@ -75,6 +75,16 @@ python course.py struggle 05.2 "note"
 </details>
 
 <details>
+<summary><b>6 · Active Directory</b> — 0/4</summary>
+
+- [ ] ⬜ [06.1 AD as a graph: architecture & enumeration](lessons/module-06/lesson-01.md)
+- [ ] ⬜ [06.2 Kerberoasting & AS-REP roasting](lessons/module-06/lesson-02.md)
+- [ ] ⬜ [06.3 Abusing ACLs, delegation & GPOs](lessons/module-06/lesson-03.md)
+- [ ] ⬜ [06.4 Domain privesc & attack-path analysis](lessons/module-06/lesson-04.md)
+
+</details>
+
+<details>
 <summary><b>7 · Web application testing</b> — 0/5</summary>
 
 - [ ] ⬜ [07.1 The web attack model & intercepting proxy](lessons/module-07/lesson-01.md)
@@ -115,6 +125,15 @@ python course.py struggle 05.2 "note"
 
 - [ ] ⬜ [13.1 Docker: isolation, capabilities & escape](lessons/module-13/lesson-01.md)
 - [ ] ⬜ [13.2 Kubernetes attack surface](lessons/module-13/lesson-02.md)
+
+</details>
+
+<details>
+<summary><b>14 · Cloud penetration testing</b> — 0/3</summary>
+
+- [ ] ⬜ [14.1 Cloud fundamentals: IAM, credentials & RoE](lessons/module-14/lesson-01.md)
+- [ ] ⬜ [14.2 Metadata, storage & network exposure](lessons/module-14/lesson-02.md)
+- [ ] ⬜ [14.3 Cloud identity & privilege escalation](lessons/module-14/lesson-03.md)
 
 </details>
 
