@@ -1,0 +1,33 @@
+# lab-00-setup — demonstrates the isolation model that every other lab depends on.
+#
+# `target` is attached ONLY to an internal (no-egress) network: this is how every
+# vulnerable target in this course is run. `leaky` is attached to a normal bridge on
+# purpose, so you can see — and learn to detect — what a misconfiguration looks like.
+#
+# There is NOTHING sensitive here; the images just let you test connectivity.
+
+services:
+  target:
+    image: alpine:3.20
+    container_name: ptlab00_target
+    command: ["sh", "-c", "echo 'isolated target up'; sleep infinity"]
+    networks:
+      - ptlab_internal          # internal-only: no route to the Internet
+    restart: unless-stopped
+
+  # DELIBERATE bad example. Attached to a normal bridge => it CAN reach the Internet.
+  # `lab check` will flag this. Never model a real target this way.
+  leaky:
+    image: alpine:3.20
+    container_name: ptlab00_leaky
+    command: ["sh", "-c", "echo 'leaky (bad example) up'; sleep infinity"]
+    networks:
+      - ptlab_egress
+    restart: unless-stopped
+
+networks:
+  ptlab_internal:
+    driver: bridge
+    internal: true              # <-- THE line that makes a target safe: no external gateway
+  ptlab_egress:
+    driver: bridge              # normal bridge (has NAT to the host uplink) — for the bad example

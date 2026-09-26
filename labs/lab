@@ -1,0 +1,87 @@
+#!/usr/bin/env bash
+# lab — thin lifecycle wrapper over docker compose for this course's labs, plus the
+# non-negotiable isolation check. Read this; a tester never runs a magic script blind.
+#
+#   ./labs/lab up    <lab-dir>     build & start a lab
+#   ./labs/lab down  <lab-dir>     stop & remove a lab
+#   ./labs/lab reset <lab-dir>     down + up (restores clean/seed state)
+#   ./labs/lab status              running lab containers + their networks
+#   ./labs/lab check               SAFETY: try to reach the Internet from each lab container
+#
+# Lab dirs live under labs/ and contain a docker-compose.yml. Lab containers are named
+# with a ptlab* prefix by convention so `status`/`check` can find them.
+set -euo pipefail
+
+LABS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PREFIX="ptlab"
+EXT_HOST="1.1.1.1"        # a routable IP; we test reachability, not name resolution
+TIMEOUT=3
+
+compose() {              # compose <lab-dir> <args...>
+  local dir="$1"; shift
+  local file="$LABS_DIR/$dir/docker-compose.yml"
+  [ -f "$file" ] || { echo "No docker-compose.yml in labs/$dir" >&2; exit 1; }
+  docker compose -f "$file" "$@"
+}
+
+lab_containers() {       # names of running containers for this course
+  docker ps --filter "name=${PREFIX}" --format '{{.Names}}'
+}
+
+# Returns 0 (reachable) or 1 (blocked). Tries a few tiny tools; a container with none
+# of them is reported as "unknown" rather than assumed safe.
+egress_reachable() {     # egress_reachable <container>
+  local c="$1"
+  docker exec "$c" sh -c "
+    if command -v wget >/dev/null 2>&1; then wget -q -T $TIMEOUT -O /dev/null http://$EXT_HOST 2>/dev/null && exit 0 || exit 1
+    elif command -v curl >/dev/null 2>&1; then curl -s -m $TIMEOUT -o /dev/null http://$EXT_HOST 2>/dev/null && exit 0 || exit 1
+    elif command -v nc >/dev/null 2>&1; then nc -z -w $TIMEOUT $EXT_HOST 80 >/dev/null 2>&1 && exit 0 || exit 1
+    else exit 2; fi
+  " >/dev/null 2>&1
+}
+
+cmd_up()    { compose "$1" up -d --build; echo "Up: $1. Run './labs/lab check' before attacking."; }
+cmd_down()  { compose "$1" down -v --remove-orphans; echo "Down: $1"; }
+cmd_reset() { compose "$1" down -v --remove-orphans; compose "$1" up -d --build; echo "Reset: $1"; }
+
+cmd_status() {
+  echo "Running lab containers:"
+  docker ps --filter "name=${PREFIX}" --format '  {{.Names}}\t{{.Image}}\t{{.Status}}'
+  echo
+  echo "Networks:"
+  docker network ls --filter "name=ptlab" --format '  {{.Name}}\t{{.Driver}}'
+}
+
+cmd_check() {
+  local any=0 leak=0
+  echo "Isolation check — attempting egress to $EXT_HOST from each lab container:"
+  for c in $(lab_containers); do
+    any=1
+    if egress_reachable "$c"; then
+      if echo "$c" | grep -qi 'leaky'; then
+        echo "  [DEMO] $c  CAN reach the Internet  (intentional bad example in lab-00)"
+      else
+        echo "  [FAIL] $c  CAN reach the Internet  <-- NOT SAFE. Fix isolation before attacking."
+        leak=1
+      fi
+    else
+      echo "  [ OK ] $c  blocked (isolated)"
+    fi
+  done
+  [ "$any" = 1 ] || { echo "  (no ${PREFIX}* containers running)"; return 0; }
+  echo
+  if [ "$leak" = 1 ]; then
+    echo "RESULT: FAIL — a target can reach the Internet. Do not proceed. See lesson 00.4."
+    return 1
+  fi
+  echo "RESULT: OK — no unexpected egress. Safe to proceed."
+}
+
+case "${1:-}" in
+  up)     cmd_up "${2:?lab dir required}";;
+  down)   cmd_down "${2:?lab dir required}";;
+  reset)  cmd_reset "${2:?lab dir required}";;
+  status) cmd_status;;
+  check)  cmd_check;;
+  *) echo "usage: lab {up|down|reset|status|check} [lab-dir]"; exit 1;;
+esac

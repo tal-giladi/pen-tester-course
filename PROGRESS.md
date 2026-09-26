@@ -6,8 +6,9 @@ _Last updated 2026-09-26. Started 2026-09-26._
 
 ## Where I am
 
-- **Lessons done:** 0/0 (0%)
+- **Lessons done:** 0/4 (0%)
 - **Open struggles:** 0
+- **Next:** [00.1 Ethics, authorization & the law](lessons/module-00/lesson-01.md)
 
 Legend: ⬜ not started · 🟨 in progress · 📖 read (exercises not done) · ✅ completed · ⏭️ skipped · ⚠ open struggle
 
@@ -18,6 +19,16 @@ python course.py struggle 05.2 "note"
 ```
 
 ## Lessons
+
+<details>
+<summary><b>0 · Foundations & methodology</b> — 0/4</summary>
+
+- [ ] ⬜ [00.1 Ethics, authorization & the law](lessons/module-00/lesson-01.md)
+- [ ] ⬜ [00.2 Methodology: PTES, kill chain & ATT&CK](lessons/module-00/lesson-02.md)
+- [ ] ⬜ [00.3 Threat modeling & attack surface](lessons/module-00/lesson-03.md)
+- [ ] ⬜ [00.4 The lab & safety architecture](lessons/module-00/lesson-04.md)
+
+</details>
 
 ## Worth revisiting
 
