@@ -9,6 +9,10 @@ an earlier module to write up (the `lab-07` SQLi or `lab-04` privesc work well).
 **You will produce:** a complete technical finding (using the report template) **and** a
 non-technical executive summary for a vulnerability you "found" in a course lab.
 
+Every worked example here is drawn from this course's **isolated lab targets** (LAB TARGET only,
+never a real system) — the same authorization boundary from [00.1](../module-00/lesson-01.md)
+governs the engagements you report on.
+
 </div>
 
 ## Why this matters

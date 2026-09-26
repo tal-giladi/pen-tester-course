@@ -65,7 +65,9 @@ def check_structure() -> None:
         if "course.py complete" not in t:
             err(f"missing progress checkpoint: {rel}")
 
-OFFENSIVE_HINT = re.compile(r"\b(exploit|payload|privilege escalation|reverse shell|inject|attack)\b", re.I)
+# "attack" alone is too broad (attack narrative/surface/path are neutral reporting terms),
+# so match genuinely offensive markers instead.
+OFFENSIVE_HINT = re.compile(r"\b(exploit|payload|privilege escalation|reverse shell|injection|pass-the-hash)\b", re.I)
 SAFETY_HINT = re.compile(r"lab target|isolated|authoriz|LAB ONLY", re.I)
 
 def check_safety() -> None:
