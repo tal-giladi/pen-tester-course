@@ -90,19 +90,13 @@ Developers implement authentication once (a middleware validates the token) and 
 "protected." But authentication is a property of the *request*; authorization is a property of the
 *(identity, object, action)* triple, and must be checked in **every handler**, against the
 **object actually being accessed** — not the object the UI intended. Frameworks make the easy
-thing insecure:
-
-- An ORM call like `Order.find(params[:id])` fetches *any* order by ID; the developer must
-  remember to add `.where(user_id: current_user.id)`. Nothing forces them to.
-- A "bind the whole request body to the model" convenience (`user.update(params)`) happily writes
-  a `role` field the client was never supposed to control — **mass assignment** (CWE-915).
-- A serializer that returns the whole database row leaks `password_hash`, `is_admin`, internal
-  notes — **excessive data exposure** (CWE-213), because the developer trusted the UI to only
-  render some fields.
-
-The root causes are CWE-639 (authorization bypass through user-controlled key), CWE-285 (improper
-authorization), CWE-915 (mass assignment), and CWE-213 (intentional information exposure). None is
-an exotic bug; each is a missing line of code.
+thing insecure: `Order.find(params[:id])` fetches *any* order (the developer must remember
+`.where(user_id: current_user.id)`); `user.update(params)` binds the whole body and writes a
+`role` the client was never meant to control (**mass assignment**); and `return user` ships the
+whole row — `password_hash`, `is_admin` — because the UI was trusted to render only some fields
+(**excessive data exposure**). The root causes are CWE-639 (authorization bypass through
+user-controlled key), CWE-285 (improper authorization), CWE-915 (mass assignment), and CWE-213
+(sensitive information exposure). None is exotic; each is a missing line of code.
 
 ## How a tester recognizes it
 

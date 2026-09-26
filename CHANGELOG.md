@@ -25,3 +25,10 @@ The format is loosely based on [Keep a Changelog](https://keepachangelog.com/). 
 - Labs: lab-02-recon (BIND with AXFR-open secondary, multi-vhost nginx, hidden vhost,
   cert-SAN pivot; tested) and lab-04-linux-privesc (5 independent privesc vectors; tested).
   Both isolated (no egress) with acceptance tests.
+
+## Batch 4 — 2026-09-26
+- M05 Windows & privesc (3 lessons + VM lab docs/provision.ps1), M07 Web app testing
+  (5 lessons), M08 API security (2 lessons), M09 Exploitation & memory corruption (3).
+  13 lessons + instructor solutions. 28 lessons total.
+- Labs: lab-08-api (REST+GraphQL, OWASP API Top 10; tested), lab-05-win-privesc (VM docs
+  + provisioning). lab-07-web added in the prior commit.

@@ -92,17 +92,17 @@ a failure of one of those two steps.
 
 ## Why the weakness exists
 
-- **GraphQL authorization** is per-field and easy to forget: developers add a resolver, wire it to
-  the data layer, and ship — the field is now reachable by anyone who can name it, unless a check was
+- **GraphQL authorization** is per-field and easy to forget: a developer adds a resolver, wires it
+  to the data layer, and ships — the field is reachable by anyone who can name it unless a check was
   added. There is no route to slap `[Authorize]` on.
 - **Introspection and dev consoles** ship enabled by default in many frameworks; leaving them on in
-  production is a misconfiguration (API8) that also defeats "security by obscurity."
-- **Query cost** is unbounded by default: the executor will happily resolve a query nested 15 levels
-  deep or aliased 1,000 times, because nothing caps it (CWE-770).
+  production is a misconfiguration (API8).
+- **Query cost** is unbounded by default: the executor resolves a query nested 15 levels deep or
+  aliased 1,000 times because nothing caps it (CWE-770).
 - **JWT validation** is subtly hard: libraries historically honored the *token's own* `alg` header,
   so an attacker could switch `RS256`→`HS256` (**algorithm confusion**, using the public key as the
-  HMAC secret) or set `alg:none` (**no signature at all**). Trusting any claim without verifying the
-  signature (CWE-347, improper verification), or ignoring `exp`/`aud`/`iss`, breaks the whole model.
+  HMAC secret) or set `alg:none` (**no signature**). Trusting a claim without verifying the signature
+  (CWE-347), or ignoring `exp`/`aud`/`iss`, breaks the model.
 - **OAuth scope** creep and missing **audience** checks let a token minted for one service be
   replayed at another (API2).
 

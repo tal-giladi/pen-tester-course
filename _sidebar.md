@@ -24,11 +24,31 @@
   - [04.1 · Linux for testers](lessons/module-04/lesson-01.md)
   - [04.2 · Local privesc I: SUID, sudo, cron, PATH, caps](lessons/module-04/lesson-02.md)
   - [04.3 · Local privesc II: services, kernel & methodology](lessons/module-04/lesson-03.md)
+- **5 · Windows & privilege escalation**
+  - [05.1 · Windows for testers](lessons/module-05/lesson-01.md)
+  - [05.2 · Windows authentication: NTLM, Kerberos, tokens](lessons/module-05/lesson-02.md)
+  - [05.3 · Windows local privilege escalation](lessons/module-05/lesson-03.md)
+- **7 · Web application testing**
+  - [07.1 · The web attack model & intercepting proxy](lessons/module-07/lesson-01.md)
+  - [07.2 · Authentication, authorization & access control](lessons/module-07/lesson-02.md)
+  - [07.3 · Injection: SQL, NoSQL, command & SSTI](lessons/module-07/lesson-03.md)
+  - [07.4 · XSS, CSRF, CORS & the SSRF/XXE family](lessons/module-07/lesson-04.md)
+  - [07.5 · Advanced web: upload, traversal, deser, smuggling](lessons/module-07/lesson-05.md)
+- **8 · API security**
+  - [08.1 · REST: BOLA/BFLA, mass assignment, exposure](lessons/module-08/lesson-01.md)
+  - [08.2 · GraphQL & token security](lessons/module-08/lesson-02.md)
+- **9 · Exploitation & memory corruption**
+  - [09.1 · Methodology & the memory model](lessons/module-09/lesson-01.md)
+  - [09.2 · Stack buffer overflows end to end](lessons/module-09/lesson-02.md)
+  - [09.3 · Modern mitigations & ROP concepts](lessons/module-09/lesson-03.md)
 
 - **Labs**
   - [Lab 00 · Setup & isolation proof](labs/lab-00-setup/README.md)
   - [Lab 02 · Reconnaissance (northwind.lab)](labs/lab-02-recon/README.md)
   - [Lab 04 · Linux privilege escalation](labs/lab-04-linux-privesc/README.md)
+  - [Lab 05 · Windows privilege escalation (VM)](labs/lab-05-win-privesc/README.md)
+  - [Lab 07 · Vulnerable web app](labs/lab-07-web/README.md)
+  - [Lab 08 · Vulnerable REST/GraphQL API](labs/lab-08-api/README.md)
   - [VM labs (Windows / AD)](labs/vm/README.md)
 
 - **Reference**

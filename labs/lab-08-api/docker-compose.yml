@@ -1,0 +1,23 @@
+# lab-08-api — deliberately vulnerable REST + GraphQL API (OWASP API Top 10 2023).
+# Isolated (no-egress). Attack from the workstation container: docker exec -it ptlab08_ws sh
+# Target: http://api:5000
+services:
+  api:
+    build: ./app
+    container_name: ptlab08_api
+    networks:
+      ptlab_apinet: { aliases: [api, api.northwind.lab] }
+    restart: unless-stopped
+
+  workstation:
+    build: ../lab-02-recon/workstation      # reuse (curl/openssl/nmap baked in)
+    container_name: ptlab08_ws
+    command: ["sh", "-c", "echo 'attacker workstation up. target: http://api:5000'; sleep infinity"]
+    networks:
+      - ptlab_apinet
+    restart: unless-stopped
+
+networks:
+  ptlab_apinet:
+    driver: bridge
+    internal: true

@@ -6,7 +6,7 @@ _Last updated 2026-09-26. Started 2026-09-26._
 
 ## Where I am
 
-- **Lessons done:** 0/15 (0%)
+- **Lessons done:** 0/28 (0%)
 - **Open struggles:** 0
 - **Next:** [00.1 Ethics, authorization & the law](lessons/module-00/lesson-01.md)
 
@@ -62,6 +62,43 @@ python course.py struggle 05.2 "note"
 - [ ] ⬜ [04.1 Linux for testers](lessons/module-04/lesson-01.md)
 - [ ] ⬜ [04.2 Local privesc I: SUID, sudo, cron, PATH, caps](lessons/module-04/lesson-02.md)
 - [ ] ⬜ [04.3 Local privesc II: services, kernel & methodology](lessons/module-04/lesson-03.md)
+
+</details>
+
+<details>
+<summary><b>5 · Windows & privilege escalation</b> — 0/3</summary>
+
+- [ ] ⬜ [05.1 Windows for testers](lessons/module-05/lesson-01.md)
+- [ ] ⬜ [05.2 Windows authentication: NTLM, Kerberos, tokens](lessons/module-05/lesson-02.md)
+- [ ] ⬜ [05.3 Windows local privilege escalation](lessons/module-05/lesson-03.md)
+
+</details>
+
+<details>
+<summary><b>7 · Web application testing</b> — 0/5</summary>
+
+- [ ] ⬜ [07.1 The web attack model & intercepting proxy](lessons/module-07/lesson-01.md)
+- [ ] ⬜ [07.2 Authentication, authorization & access control](lessons/module-07/lesson-02.md)
+- [ ] ⬜ [07.3 Injection: SQL, NoSQL, command & SSTI](lessons/module-07/lesson-03.md)
+- [ ] ⬜ [07.4 XSS, CSRF, CORS & the SSRF/XXE family](lessons/module-07/lesson-04.md)
+- [ ] ⬜ [07.5 Advanced web: upload, traversal, deser, smuggling](lessons/module-07/lesson-05.md)
+
+</details>
+
+<details>
+<summary><b>8 · API security</b> — 0/2</summary>
+
+- [ ] ⬜ [08.1 REST: BOLA/BFLA, mass assignment, exposure](lessons/module-08/lesson-01.md)
+- [ ] ⬜ [08.2 GraphQL & token security](lessons/module-08/lesson-02.md)
+
+</details>
+
+<details>
+<summary><b>9 · Exploitation & memory corruption</b> — 0/3</summary>
+
+- [ ] ⬜ [09.1 Methodology & the memory model](lessons/module-09/lesson-01.md)
+- [ ] ⬜ [09.2 Stack buffer overflows end to end](lessons/module-09/lesson-02.md)
+- [ ] ⬜ [09.3 Modern mitigations & ROP concepts](lessons/module-09/lesson-03.md)
 
 </details>
 
